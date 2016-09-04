@@ -1,0 +1,51 @@
+<px-card icon="fa-calendar" header-text="Expiration Date" chevron class="ng-scope">
+<article role="article">        
+<p>Search: <input ng-model="filterText"></p>
+        <div class="flex"> 
+<table border="1" width="100%">
+    <tr>
+        <th>Expiration Date</th>
+        <th>System Name</th>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+        <th>Location</th>
+    </tr>
+<tbody>
+    <tr ng-repeat="history in historys | filter:filterText"> 
+        <td>{{history.expirationDate}}</td>
+        <td>{{history.systemName}}</td>
+        <td>{{history.serialNumber}}</td>
+        <td>{{history.manufacturer}}</td>
+        <td>{{history.location}}</td>
+     </tr>
+</tbody>
+</table>
+</div>
+</article>
+</px-card>
+
+<px-card icon="fa-dollar" header-text="Asset Rent" chevron class="ng-scope">  
+<article role="article">        
+<p>Search: <input ng-model="filterText"></p>
+        <div class="flex"> 
+<table border="1" width="100%">
+    <tr>
+        <th>System Name</th>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+        <th>Location</th>
+        <th>Rent</th>
+    </tr>
+<tbody>
+    <tr ng-repeat="history in historys | filter:filterText"> 
+        <td>{{history.systemName}}</td>
+        <td>{{history.serialNumber}}</td>
+        <td>{{history.manufacturer}}</td>
+        <td>{{history.location}}</td>
+        <td>{{history.rent}}</td>
+     </tr>
+</tbody>
+</table>
+</div>
+</article>   
+</px-card>

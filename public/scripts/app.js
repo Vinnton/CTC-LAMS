@@ -32,36 +32,58 @@ define([
      * child controllers to access properties defined on the $rootScope.
      */
     predixApp.controller('MainCtrl', ['$scope', '$rootScope', 'PredixUserService', function ($scope, $rootScope, predixUserService) {
-
+        //we'll store patients in rootScope for now, so we can use them on multiple views later.
+            $rootScope.assets = [
+                { id: 1, systemName: 'sha1302015717E', serialNumber: '6cr501wfmy', manufacturer: 'HP', location: 'Life Testing Lab' },
+                { id: 2, systemName: 'LOCALHOST', serialNumber: '6cr349wm93', manufacturer: 'HP', location: 'HALT Lab' },
+                { id: 3, systemName: 'sha1302015462e', serialNumber: '7khw23x', manufacturer: 'DELL', location: 'Applied Magnet Lab' },
+                { id: 4, systemName: 'sha1302002547H', serialNumber: '6jy5d02', manufacturer: 'DELL', location: 'Thin Film Lab' },
+                { id: 5, systemName: 'sha1302017212c', serialNumber: '6cr249wm98', manufacturer: 'HP', location: 'Water & Process Chemistry Lab' }
+            ];
+            $rootScope.historys = [
+                { maintainanceDate: 'August 14, 2016', systemName: 'sha1302015717E', serialNumber: '6cr501wfmy', manufacturer: 'HP', location: 'E1 Life Testing Lab', issueType: 'Runtime Error', expirationDate: 'August, 2020' },
+                { maintainanceDate: 'August 6, 2016', systemName: 'LOCALHOST', serialNumber: '6cr349wm93', manufacturer: 'HP', location: 'E1 HALT Lab', issueType: 'Network Error', expirationDate: 'July, 2020' },
+                { maintainanceDate: 'August 2, 2016', systemName: 'sha1302002547H', serialNumber: '6jy5d02', manufacturer: 'DELL', location: 'E2 GETS Elec. Lab', issueType: 'Runtime Error', expirationDate: 'October, 2025' },
+                { maintainanceDate: 'July 29, 2016', systemName: 'vre', serialNumber: '1406nmm0cy', manufacturer: 'ORACLE', location: 'W3 Appliance EMC Lab', issueType: 'Bluescreen', expirationDate: 'May, 2017' },
+                { maintainanceDate: 'July 10, 2016', systemName: 'sha1302013769d', serialNumber: 'cng848w0q1', manufacturer: 'HP', location: 'W3 WPT-CL2', issueType: 'Network Error', expirationDate: 'January, 2020' },
+            ];
         //Global application object
-        window.App = $rootScope.App = {
-            version: '1.0',
-            name: 'Predix Seed',
-            session: {},
-            tabs: [
-                {icon: 'fa-tachometer', state: 'dashboards', label: 'Dashboards'},
-                {icon: 'fa-file-o', state: 'blankpage', label: 'Blank Page', subitems: [
-                    {state: 'blanksubpage', label: 'Blank Sub Page'}
-                ]}
-            ]
-        };
+            window.App = $rootScope.App = {
+                version: '1.0',
+                name: 'CTC Labs Asset Management System',
+                session: {},
+                tabs: [
+                    {icon: 'fa-home', state: 'dashboards', label: 'Dashboards'},
+                    {icon: 'fa-map', state: 'AssetMap', label: 'Asset Map', subitems: [
+                        {state: 'E1', label: 'East 1Flr'},
+                        {state: 'E2', label: 'East 2Flr'},
+                        {state: 'E3', label: 'East 3Flr'},
+                        {state: 'W1', label: 'West 1Flr'},
+                        {state: 'W2', label: 'West 2Flr'},
+                        {state: 'W3', label: 'West 3Flr'}
+                    ]},
+                    {icon: 'fa-bar-chart', state: 'statistic', label: 'Statistic'},
+                    {icon: 'fa-history', state:'history', label: 'History'},
+                    {icon: 'fa-comments', state:'contact', label: 'Contact Us'}
+                ]
+            };
 
-        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-            if (angular.isObject(error) && angular.isString(error.code)) {
-                switch (error.code) {
-                    case 'UNAUTHORIZED':
-                        //redirect
-                        predixUserService.login(toState);
-                        break;
-                    default:
-                        //go to other error state
+            $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+                if (angular.isObject(error) && angular.isString(error.code)) {
+                    switch (error.code) {
+                        case 'UNAUTHORIZED':
+                            //redirect
+                            predixUserService.login(toState);
+                            break;
+                        default:
+                            //go to other error state
+                    }
                 }
-            }
-            else {
-                // unexpected error
-            }
-        });
-    }]);
+                else {
+                    // unexpected error
+                }
+            });
+        }]);
 
 
     //Set on window for debugging

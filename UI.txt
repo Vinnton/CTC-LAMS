@@ -1,0 +1,567 @@
+********************************************************************************************************
+
+//Exercise 1 Step 2
+
+********************************************************************************************************
+
+            .state('patients', {
+
+            	 url: '/patients',
+
+            	 templateUrl: '/views/patient/index.html', 
+
+            	 controller: 'PatientsCtrl'
+
+            });
+
+
+
+********************************************************************************************************          
+
+//Exercise 1,Step  3
+
+********************************************************************************************************
+
+                    {state: 'patients', label: 'Patients'}
+
+    
+
+********************************************************************************************************    
+
+//Exercise 1, Step 4
+
+********************************************************************************************************
+
+	//we'll store patients in rootScope for now, so we can use them on multiple views later.
+
+	    $rootScope.patients = [
+
+               { id: 1, firstName: 'Bob', lastName: 'Dylan' },
+
+               { id: 2, firstName: 'Joe', lastName: 'Sammy' }
+
+	    ];
+
+      
+
+********************************************************************************************************      
+
+// Exercise 2, Step 1
+
+********************************************************************************************************
+
+'use strict';
+
+define(['angular', 'sample-module'], function(angular, controllers) {
+
+    // Controller definition
+
+    controllers.controller('PatientsCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
+
+        $scope.form = {};
+
+        $scope.addPatient = function () {
+
+            var patient = {
+
+                id: $scope.patients.length + 1,
+
+                firstName: $scope.form.firstName,
+
+                lastName: $scope.form.lastName
+
+            };
+
+            $rootScope.patients.push(patient);
+
+            $scope.form = {};
+
+        };
+
+    }]);
+
+});
+
+
+
+********************************************************************************************************
+
+// Exercise 2, Step 2
+
+********************************************************************************************************
+
+define(['./dashboard', './data-control', './patients'], function() {
+
+
+
+});
+
+
+
+********************************************************************************************************
+
+// Exercise 2, Step 3
+
+********************************************************************************************************
+
+<px-card>
+
+    <article role="article">
+
+        <h2 class="u-mt0 u-pt+">Patients</h2>
+
+        <div class="flex">
+
+            <table>
+
+              <thead>
+
+                <tr>
+
+                  <th>Patient ID</th>
+
+                  <th>First Name</th>
+
+                  <th>Last Name</th>
+
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr ng-repeat="patient in patients">
+
+                  <td>{{patient.id}}</td>
+
+                  <td>{{patient.firstName}}</td>
+
+                  <td>{{patient.lastName}}</td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+        </div>
+
+    </article>
+
+</px-card>
+
+
+
+********************************************************************************************************
+
+//Exercise 3, Step 1
+
+********************************************************************************************************
+
+	<div class="flex">
+
+	    <form ng-submit="addPatient()">
+
+	      <label for="first-name">First Name: </label>
+
+	      <input type="text" id="first-name" placeholder="i.e. Joe" ng-model="form.firstName">
+
+	      <label for="last-name">Last Name: </label>
+
+	      <input type="text" id="last-name" placeholder="i.e. Smith" ng-model="form.lastName">
+
+	      <button type="submit">Add Patient</button>
+
+	    </form>
+
+	</div>
+
+	<br/>
+
+
+
+********************************************************************************************************
+
+// Exercise 3, Step 2
+
+********************************************************************************************************
+
+        
+
+<p>Search: <input ng-model="filterText"></p>
+
+
+
+********************************************************************************************************
+
+// Exercise 3, Step 3
+
+********************************************************************************************************
+
+                <tr ng-repeat="patient in patients | filter:filterText">
+
+********************************************************************************************************
+
+// Exercise 4, Step 1
+
+********************************************************************************************************
+
+@import "px-forms-design/_base.forms.scss";
+
+********************************************************************************************************
+
+// Exercise 4, Step 2
+
+********************************************************************************************************
+
+<form ng-submit="addPatient()">
+
+    <ol class=list-bare>
+
+      <li class=form-field>
+
+        <label for="first-name">First Name: </label>
+
+        <input type="text" id="first-name" placeholder="i.e. Joe" ng-model="form.firstName" class="text-input input--small">
+
+      </li>
+
+      <li class=form-field>
+
+        <label for="last-name">Last Name: </label>
+
+        <input type="text" id="last-name" placeholder="i.e. Smith" ng-model="form.lastName" class="text-input input--small">
+
+      </li>
+
+    </ol>
+
+    <input class="btn btn--primary" type="submit" value="Add Patient">
+
+</form>
+
+  
+
+********************************************************************************************************
+
+// Exercise 4, Step 3
+
+********************************************************************************************************
+
+$inuit-enable-btn--primary : true;
+
+******************************************************************************************************** 
+
+// Exercise 4, Step 4
+
+********************************************************************************************************
+
+$inuit-enable-input--small : true;
+
+********************************************************************************************************
+
+// Exercise 5, Step 1
+
+********************************************************************************************************
+
+	    .state('hospitals', {
+
+		 url: '/hospitals',
+
+		 templateUrl: 'views/hospital/index.html',
+
+		 controller: 'HospitalsCtrl'
+
+	    });
+
+********************************************************************************************************    
+
+// Exercise 5, Step 2
+
+********************************************************************************************************
+
+                    {state: 'hospitals', label: 'Hospitals'}  
+
+    
+
+********************************************************************************************************    
+
+// Exercise 5, Step 3
+
+********************************************************************************************************
+
+'use strict';
+
+define(['angular', 'sample-module',], function(angular, controllers) {
+
+  controllers.controller('HospitalsCtrl', ['$scope', function($scope) {
+
+    $scope.hospitals = [
+
+      {
+
+        id: 1,
+
+        name: 'Stanford Hospital and Clinics',
+
+        address: '300 Pasteur Drive',
+
+        city: 'Palo Alto',
+
+        state: 'CA',
+
+        zip: 94304,
+
+        phone: 6507234000,
+
+        email: "mike@stanford.edu"
+
+      },
+
+      {
+
+        id: 2,
+
+        name: 'Sequoia Hospital',
+
+        address: '170 Alameda De Las Pulgas',
+
+        city: 'Redwood City',
+
+        state: 'CA',
+
+        zip: 94062,
+
+        phone: 6503695811,
+
+        email: "joe@sequoia.com"
+
+      }
+
+    ];
+
+    $scope.hospitalDetails = $scope.hospitals[0];
+
+  }]);
+
+});
+
+
+
+********************************************************************************************************
+
+// Exercise 5, Step 4
+
+******************************************************************************************************** 
+
+define(['./dashboard', './data-control', './patients', './hospitals'], function() {
+
+});
+
+
+
+********************************************************************************************************
+
+// Exercise 5, Step 5
+
+********************************************************************************************************
+
+<px-card header-text="Hospitals">
+
+    <article role="article">
+
+        <div class="flex">
+
+            <p>There are {{hospitals.length}} hospitals within this network.</p>
+
+        </div>
+
+    </article>
+
+</px-card>
+
+
+
+********************************************************************************************************
+
+//  Exercise 6, Step 3
+
+********************************************************************************************************
+
+// Component
+
+.hospital-table {
+
+  width: 60%;
+
+  background-color: lightgrey;
+
+}
+
+********************************************************************************************************
+
+// Exercise 6, Step 4
+
+********************************************************************************************************
+
+<dom-module id="hospital-info">
+
+    <link rel="import" type="css" href="css/hospital-info.css"/>
+
+    <template>
+
+        <div class="flex">
+
+            <h4>Hospital Details</h4>
+
+        </div>
+
+        <div>
+
+            <table class="table hospital-table">
+
+                <tr><th class="text--right">Hospital Name :</th><td><span>{{hospitalDetails.name}}</span></td></tr>
+
+                <tr><th class="text--right">Hospital Address :</th><td><span>{{hospitalDetails.address}}</span></td></tr>
+
+                <tr><th class="text--right">Email :</th><td><span>{{hospitalDetails.email}}</span></td></tr>
+
+                <tr><th class="text--right">Phone :</th><td><span>{{hospitalDetails.phone}}</span></td></tr>
+
+            </table>
+
+        </div>
+
+    </template>
+
+</dom-module>Rel
+
+
+
+********************************************************************************************************
+
+// Exercise 6, Step 5
+
+********************************************************************************************************
+
+<script>
+
+    Polymer({
+
+    is: 'hospital-info',
+
+    properties: {
+
+        hospitalDetails: {
+
+            type: Object
+
+        }
+
+    }
+
+});
+
+</script>
+
+********************************************************************************************************
+
+// Exercise 6, Step 6
+
+********************************************************************************************************
+
+<link rel="import" href="bower_components/hospital-info/hospital-info.html"/>
+
+
+
+********************************************************************************************************
+
+// Exercise 6, Step 7
+
+********************************************************************************************************
+
+<px-card>
+
+    <hospital-info hospital-details="{{hospitalDetails}}"></hospital-info>
+
+</px-card>
+
+**************************************************************************************
+
+// Exercise 7, Step 2
+
+**************************************************************************************
+
+	<px-card header-text="Hospitals">
+
+	    <article role="article">
+
+		        <div class="flex">
+
+		            <p>There are {{hospitals.length}} hospitals within this network.</p>
+
+	        </div>
+
+		    </article>
+
+		</px-card>
+
+		<px-card>
+
+			<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+
+			<template is="dom-bind" id="hospital-info-element">
+
+			<iron-ajax
+
+				auto
+
+				url="/hospital-details.json"
+
+				handle-as="json"
+
+				last-response="{{response}}">
+
+			</iron-ajax>
+
+			<hospital-info hospital-details='{{response}}'></hospital-info>
+
+		</template>
+
+	</px-card>
+
+*****************************************************************************************
+
+// Exercise 7, Step 3
+
+*****************************************************************************************
+
+	{
+
+	    "id": 2,
+
+	    "name": "Sequoia Hospital",
+
+	    "address": "170 Avenida De Los Arboles",
+
+	    "city": "Redwood City",
+
+	    "state": "CA",
+
+	    "zip": "94062",
+
+	    "phone": "(650) 555-5811",
+
+	    "email": "admin@sequoia.com"
+
+	  }
+
+
+
+
+
+
+
+
+
+￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭￭

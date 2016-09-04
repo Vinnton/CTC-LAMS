@@ -1,0 +1,83 @@
+<px-card header-text="Asset Overviews" icon="fa-stack-overflow">
+
+<div class=widget-1>
+<h1>Current Machine Location</h1>
+<article role="article">        
+<p>Search: <input ng-model="filterText1"></p>
+        <div class="flex"> 
+<table border="1" width="100%">
+    <tr>
+        <th>System Name</th>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+        <th>Location</th>
+    </tr>
+<tbody>
+    <tr ng-repeat="history in historys | filter:filterText1"> 
+        <td>{{history.systemName}}</td>
+        <td>{{history.serialNumber}}</td>
+        <td>{{history.manufacturer}}</td>
+        <td>{{history.location}}</td>
+
+     </tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+
+<div class=widget-2>
+<h1>Current Maintainance Requirement</h1>
+<article role="article">        
+<p>Search: <input ng-model="filterText2"></p>
+        <div class="flex"> 
+<table border="1" width="100%">
+    <tr>
+        <th>Requirement Date</th>
+        <th>System Name</th>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+        <th>Location</th>
+        <th>Issue Type</th>
+    </tr>
+<tbody>
+    <tr ng-repeat="history in historys | filter:filterText2"> 
+        <td>{{history.maintainanceDate}}</td>
+        <td>{{history.systemName}}</td>
+        <td>{{history.serialNumber}}</td>
+        <td>{{history.manufacturer}}</td>
+        <td>{{history.location}}</td>
+        <td>{{history.issueType}}</td>
+     </tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+
+
+<div class=widget-3>
+<h1>Overall Maintainance Requirements</h1>
+<canvas id ="myCanvas"  style="border:1px solid #d3d3d3;" ></canvas>
+<script type="text/javascript">
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");   
+    var v = new histogram(ctx, jasonData, 2);   
+    v.draw();
+</script>
+</section>
+</div>
+
+
+<div class=widget-4>
+<h1>Overall Maintainance Fees</h1>
+<canvas id ="myCanvas2"  style="border:1px solid #d3d3d3;" ></canvas>
+<script type="text/javascript">
+    var c1 = document.getElementById("myCanvas2");
+    var ctx1 = c1.getContext("2d");   
+    var v1 = new histogram(ctx1, jasonData2, 2000);   
+    v1.draw();
+</script>
+</div>
+
+</px-card>

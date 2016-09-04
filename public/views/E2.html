@@ -1,0 +1,110 @@
+<px-card icon="fa-map-marker" header-text="CTC East 2Flr" chevron class="ng-scope">
+    <div id="map" style="width: 100%"></div>
+    <script class="ng-scope">
+$(document).ready(function(){ 
+      var center = ol.proj.transform([121.3441, 31.1129], 'EPSG:4326', 'EPSG:3857');
+      var extent = [center[0]- 6000*1000/2, center[1]-4000*1000/2, center[0]+6000*1000/2, center[1]+4000*1000/2];
+      
+      var map = new ol.Map({
+        view: new ol.View({ 
+            center: center,
+            zoom: 5
+        }),
+        target: 'map',
+    });
+    map.addLayer(new ol.layer.Image({
+        source: new ol.source.ImageStatic({
+            url: 'images/E2.Jpeg', 
+            imageExtent: extent    
+        })
+   }));
+
+   var layer = new ol.layer.Vector({ source: new ol.source.Vector()})
+   var style = new ol.style.Style({
+     image: new ol.style.Icon({
+      src: 'images/marker.png',
+      scale:0.03,
+      anchor:[1,1],
+    })});
+});
+
+    </script>
+</px-card>
+<px-card icon="fa-suitcase" header-text="Asset Status" chevron class="ng-scope">
+ <table border="1" width="100%">
+    <tr>
+        <th>System Name</th>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+    </tr>
+    
+    <tr>
+        <td>ekdz800</td>
+        <td>cng232wkz4</td>
+        <td>HP</td>
+    </tr>
+    <tr>
+        <td>LOCALHOST</td>
+        <td>5bwngz1</td>
+        <td>DELL</td>
+    </tr>
+    <tr>
+        <td>sha1302002547H</td>
+        <td>6jy5d02</td>
+        <td>DELL</td>
+    </tr>
+
+    <tr>
+        <td>vre</td>
+        <td>1406nmm0cy</td>
+        <td>ORACLE</td>
+    </tr>    
+    <tr>
+        <td>sha1302013769d</td>
+        <td>cng848w0q1</td>
+        <td>HP</td>
+    </tr>    
+    <tr>
+        <td>sha1302017212c</td>
+        <td>6cr249wm98</td>
+        <td>HP</td>
+    </tr>
+    <tr>
+        <td>tullp</td>
+        <td>6.15E+18</td>
+        <td>GE HEALTHCARE</td>
+    </tr>
+    <tr>
+        <td>sha1302015462e</td>
+        <td>7khw23x</td>
+        <td>DELL</td>
+    </tr>
+ 
+    <tr>
+        <td>SHA1212357383G</td>
+        <td>6cr501wfnj</td>
+        <td>HP</td>
+    </tr>
+    <tr>
+        <td>SHA1302017638A</td>
+        <td>6CR349WM97</td>
+        <td>HP</td>
+    </tr>
+    <tr>
+        <td>sdeldata01</td>
+        <td>88WVQ42</td>
+        <td>DELL</td>
+    </tr>
+
+    <tr>
+        <td>hadooptest</td>
+        <td>86WVQ42</td>
+        <td>DELL</td>
+    </tr>
+    <tr>
+        <td>sdelad</td>
+        <td>B5WVQ42</td>
+        <td>DELL</td>
+    </tr>
+</table>
+</px-card>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!-- import page level css. -->
+<link rel="import" href="bower_components/px-theme/px-app.html">
+<!-- import component theme css variables. -->
+<link rel="import" href="bower_components/px-theme/px-theme.html"/>
+
+<link rel="import" href="bower_components/px-login/px-login.html"/>
+<link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
+
+<link rel="import" href="bower_components/px-simple-bar-chart/px-simple-bar-chart.html"/>
+<link rel="import" href="bower_components/px-deck-selector/px-deck-selector.html"/>
+<script type="text/javascript" src="Scripts/histogram/Data.js" ></script>
+<script type="text/javascript" src="Scripts/histogram/quickwin.verticalbar.js" ></script>
+<script type="text/javascript" src="Scripts/histogram/quickwin.horizontalbar.js" ></script>
+<script type="text/javascript" src="Scripts/histogram/quickwin.histogram.js" ></script>
+<link rel="import" href="bower_components/px-context-browser/px-context-browser.html"/>
+<link rel="import" href="bower_components/px-card/px-dashboard.html"/>
+<link rel="import" href="bower_components/px-card/px-deck.html"/>
+<link rel="import" href="bower_components/px-card/px-card.html"/>
+<link rel="stylesheet" href="bower_components/px-chart/css/px-chart-sketch.css"/>
+<link rel="import" href="bower_components/px-sample-cards/time-series-card.html"/>
+<link rel="import" href="bower_components/px-sample-cards/datagrid-card.html"/>
+<link rel="import" href="bower_components/px-sample-cards/gist-card.html"/>
+<link rel="import" href="bower_components/px-sample-cards/widgets-card.html"/>
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html"/>
+<link rel="import" href="bower_components/px-sample-cards/blank-card.html"/>
+<link rel="import" href="bower_components/google-analytics/google-analytics.html">
+<link rel="import" href="bower_components/px-theme/px-theme.html" />
+<link rel="import" href="bower_components/px-widget-cards/px-twoup.html" />
+<link rel="import" href="bower_components/px-widget-cards/px-threeup.html" />
+<link rel="import" href="bower_components/px-widget-cards/px-fourup.html" />
+<link rel="import" href="bower_components/px-widget-cards/px-sixup.html" />
+<link rel="import" href="bower_components/px-chart/px-chart.html" />
+<link rel="import" href="bower_components/ol3.17.1/ol.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="bower_components/ol3.17.1/ol.js" charset="utf-8"></script>

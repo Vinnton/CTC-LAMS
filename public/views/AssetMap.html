@@ -1,0 +1,166 @@
+<px-card icon="fa-map-marker" header-text="CTC East 1Flr" chevron class="ng-scope">
+    <div id="map" style="width: 100%"></div>
+    <script class="ng-scope">
+$(document).ready(function(){ 
+      var center = ol.proj.transform([121.3441, 31.1129], 'EPSG:4326', 'EPSG:3857');
+      var extent = [center[0]- 6000*1000/2, center[1]-4000*1000/2, center[0]+6000*1000/2, center[1]+4000*1000/2];
+      
+      var map = new ol.Map({
+        view: new ol.View({ 
+            center: center,
+            zoom: 5
+        }),
+        target: 'map',
+    });
+    map.addLayer(new ol.layer.Image({
+        source: new ol.source.ImageStatic({
+            url: 'images/E1.jpg', 
+            imageExtent: extent    
+        })
+   }));
+
+   var layer = new ol.layer.Vector({ source: new ol.source.Vector()})
+   var style = new ol.style.Style({
+     image: new ol.style.Icon({
+      src: 'images/marker.png',
+      scale:0.03,
+      anchor:[1,1],
+    })});
+ 
+    var Lab1 = new ol.Feature({geometry: new ol.geom.Point([center[0],center[1]+320000])});
+    Lab1.setStyle(style);
+    var Lab2 = new ol.Feature({geometry: new ol.geom.Point([center[0]+1700000,center[1]+320000])});
+    Lab2.setStyle(style);
+    var Lab3 = new ol.Feature({geometry: new ol.geom.Point([center[0]+2600000,center[1]+320000])});
+    Lab3.setStyle(style);
+    var Lab4 = new ol.Feature({geometry: new ol.geom.Point([center[0]+640000,center[1]+280000])});
+    Lab4.setStyle(style);
+    var Lab5 = new ol.Feature({geometry: new ol.geom.Point([center[0]+400000,center[1]])});
+    Lab5.setStyle(style);
+    var Lab6 = new ol.Feature({geometry: new ol.geom.Point([center[0]+1300000,center[1]])});
+    Lab6.setStyle(style);
+    var Lab7 = new ol.Feature({geometry: new ol.geom.Point([center[0]+1900000,center[1]])});
+    Lab7.setStyle(style);
+    var Lab8 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+800000  ,center[1]+60000])});
+    Lab8.setStyle(style);
+    var Lab9 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+1200000  ,center[1]+60000])});
+    Lab9.setStyle(style);
+    var Lab10 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+1600000  ,center[1]+60000])});
+    Lab10.setStyle(style);
+    var Lab11 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+1600000  ,center[1]+400000])});
+    Lab11.setStyle(style);
+    var Lab12 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+1100000  ,center[1]+450000])});
+    Lab12.setStyle(style);
+    var Lab13 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+1600000  ,center[1]-4000*1000/2+900000])});
+    Lab13.setStyle(style);
+    var Lab14 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+1600000  ,center[1]-4000*1000/2+1300000])});
+    Lab14.setStyle(style);
+    var Lab15 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+800000  ,center[1]-4000*1000/2+900000])});
+    Lab15.setStyle(style);
+    var Lab16 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+800000  ,center[1]-4000*1000/2+1300000])});
+    Lab16.setStyle(style);
+    var Lab17 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+2000000  ,center[1]-4000*1000/2+900000])});
+    Lab17.setStyle(style);
+    var Lab18 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+2000000  ,center[1]-4000*1000/2+1300000])});
+    Lab18.setStyle(style);
+    var Lab19 = new ol.Feature({geometry: new ol.geom.Point([center[0]-6000*1000/2+2750000 ,center[1]-4000*1000/2+1300000])});
+    Lab19.setStyle(style);
+    var Lab20 = new ol.Feature({geometry: new ol.geom.Point([center[0]+610000 ,center[1]-4000*1000/2+1350000])});
+    Lab20.setStyle(style);
+    var Lab21 = new ol.Feature({geometry: new ol.geom.Point([center[0]+1000000 ,center[1]-4000*1000/2+1400000])});
+    Lab21.setStyle(style);
+    var Lab22 = new ol.Feature({geometry: new ol.geom.Point([center[0]+1500000 ,center[1]-4000*1000/2+1430000])});
+    Lab22.setStyle(style);
+
+ layer.getSource().addFeature(Lab1);
+ layer.getSource().addFeature(Lab2);
+ layer.getSource().addFeature(Lab3);
+ layer.getSource().addFeature(Lab4);
+ layer.getSource().addFeature(Lab5);
+ layer.getSource().addFeature(Lab6);
+ layer.getSource().addFeature(Lab7);
+ layer.getSource().addFeature(Lab8);
+ layer.getSource().addFeature(Lab9);
+ layer.getSource().addFeature(Lab10);
+ layer.getSource().addFeature(Lab11);
+ layer.getSource().addFeature(Lab12);
+ layer.getSource().addFeature(Lab13);
+ layer.getSource().addFeature(Lab14);
+ layer.getSource().addFeature(Lab15);
+ layer.getSource().addFeature(Lab16);
+ layer.getSource().addFeature(Lab17);
+ layer.getSource().addFeature(Lab18);
+ layer.getSource().addFeature(Lab19);
+ layer.getSource().addFeature(Lab20);
+ layer.getSource().addFeature(Lab21);
+ layer.getSource().addFeature(Lab22);
+ map.addLayer(layer);
+
+function show_db()
+{alert('Equippment   Number\n     Boiler            3');}
+
+
+ var selectSingleClick = new ol.interaction.Select({});
+    map.addInteraction(selectSingleClick);
+    selectSingleClick.on('select', function(event)
+   {
+   show_db();
+   }
+   )
+  });
+
+    </script>
+</px-card>
+
+<px-card icon="fa-suitcase" header-text="Asset Status" chevron class="ng-scope">  
+    <article role="article">        
+	<div class="flex">
+	    <form ng-submit="addAsset()">
+	      <label for="systemName">System Name: </label>
+	      <input type="text" id="systemName" placeholder="i.e. Localhost" ng-model="form.systemName">
+	      <label for="serialNumber">Serial Number: </label>
+	      <input type="text" id="serialNumber" placeholder="i.e. 6cr349wm93" ng-model="form.serialNumber">
+	      <label for="manufacturer">Manufacturer: </label>
+	      <input type="text" id="manufacturer" placeholder="i.e. HP" ng-model="form.manufacturer">
+	      <label for="location">Location: </label>
+	      <input type="text" id="location" placeholder="i.e. W1 Life Testing Lab" ng-model="form.location">
+	      <button type="submit">Add IT Asset</button>
+	    </form>
+	</div>
+	<br/>
+
+        <div class="flex">
+	    <form ng-submit="deleteAsset()">
+	      <label for="serial-number">Serial Number: </label>
+	      <input type="text" id="serial-number" placeholder="i.e. 6cr349wm93" ng-model="deleteform.serialNumber">
+	      <button type="submit">Delete IT Asset</button>
+	    </form>
+	</div>
+
+        <p><input ng-model="filterText"> <button type="search">Search</button> </p>
+	<br/>
+
+        <div class="flex">
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>SystemID</th>
+                  <th>SystemName</th>
+                  <th>SerialNumber</th>
+                  <th>Manufacturer</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="asset in assets | filter:filterText">
+                  <td>{{asset.id}}</td>
+                  <td>{{asset.systemName}}</td>
+                  <td>{{asset.serialNumber}}</td>
+                  <td>{{asset.manufacturer}}</td>
+                  <td>{{asset.location}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </article>
+</px-card>

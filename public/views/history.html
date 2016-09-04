@@ -1,0 +1,48 @@
+<px-card icon="fa-history" header-text="Maintenance History" chevron class="ng-scope">
+    <article role="article">        
+	<div class="flex">
+	    <form ng-submit="addHistory()">
+	      <label for="maintainence-date">Maintenance Date: </label>
+	      <input type="text" id="maintainence-date"" placeholder="i.e. July 10, 2016" ng-model="history.maintainenceDate"">
+	      <label for="system-name">System Name: </label>
+	      <input type="text" id="system-name" placeholder="i.e. Localhost" ng-model="history.systemName">
+	      <label for="serial-number">Serial Number: </label>
+	      <input type="text" id="serial-number" placeholder="i.e. 6cr349wm93" ng-model="history.serialNumber">
+	      <label for="manufacturer">Manufacturer:      </label>
+	      <input type="text" id="manufacturer" placeholder="i.e. HP" ng-model="form.manufacturer">
+              <label for="location">Location:      </label>
+	      <input type="text" id="location" placeholder="i.e. CTC West 1Flr" ng-model="history.location">
+	      <button type="submit">Add History</button>
+	    </form>
+	</div>
+	<br/>
+        <div class="flex">
+	    <form ng-submit="deleteAsset()">
+	      <label for="serial-number">Serial Number: </label>
+	      <input type="text" id="serial-number" placeholder="i.e. 6cr349wm93" ng-model="history.serialNumber">
+	      <button type="submit">Delete History</button>
+	    </form>
+	</div>
+<p>Search: <input ng-model="filterText"></p>
+        <div class="flex"> 
+<table border="1" width="100%">
+    <tr>
+        <th>Maintenance Date</th>
+        <th>System Name</th>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+        <th>Location</th>
+    </tr>
+<tbody>
+    <tr ng-repeat="history in historys | filter:filterText"> 
+        <td>{{history.maintainanceDate}}</td>
+        <td>{{history.systemName}}</td>
+        <td>{{history.serialNumber}}</td>
+        <td>{{history.manufacturer}}</td>
+        <td>{{history.location}}</td>
+     </tr>
+</tbody>
+</table>
+</div>
+</article>
+</px-card>

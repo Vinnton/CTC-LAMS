@@ -35,13 +35,45 @@ define(['angular', 'angular-ui-router'], function(angular) {
                 templateUrl: 'views/dashboards.html',
                 controller: 'DashboardsCtrl'
             })
-            .state('blankpage', {
-                url: '/blankpage',
-                templateUrl: 'views/blank-page.html'
+            .state('AssetMap', {
+                url: '/AssetMap',
+                templateUrl: 'views/AssetMap.html',
             })
-            .state('blanksubpage', {
-                url: '/blanksubpage',
-                templateUrl: 'views/blank-sub-page.html'
+            .state('E1', {
+                url: '/E1',
+                templateUrl: 'views/E1.html',
+            })
+            .state('E2', {
+                url: '/E2',
+                templateUrl: 'views/E2.html'
+            })
+            .state('E3', {
+                url: '/E3',
+                templateUrl: 'views/E3.html'
+            })
+            .state('W1', {
+                url: '/W1',
+                templateUrl: 'views/W1.html'
+            })
+            .state('W2', {
+                url: '/W2',
+                templateUrl: 'views/W2.html'
+            })
+            .state('W3', {
+                url: '/W3',
+                templateUrl: 'views/W3.html'
+            })
+            .state('statistic', {
+                url: '/statistic',
+                templateUrl: 'views/statistic.html'
+            })
+            .state('history', {
+                url: '/history',
+                templateUrl: 'views/history.html'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'views/contact.html'
             });
 
 
